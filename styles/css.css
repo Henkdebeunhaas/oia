@@ -1,0 +1,44 @@
+html 
+{
+    background-color: #485460;
+    font-family: roboto;
+    font-weight: 300;
+}
+
+/* width */
+::-webkit-scrollbar 
+{
+    width: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb
+{
+    background: #69ffb4;
+    /*border-radius: 10px;*/
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover 
+{
+    background: #69ffb4;
+}
+
+.footer
+{
+    background-color: #69ffb4;
+    width: 100%;
+    height: 75px;
+    display: block;
+}
+
+.ulfooter
+{
+    list-style-type: none;
+    text-decoration: none;
+}
+
+.hidden
+{
+    visibility: hidden;
+}

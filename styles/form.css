@@ -1,0 +1,225 @@
+.formcenter
+{
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 20%;
+    text-align: center;
+    display: table;
+    align-items: center;
+}
+
+.change_div
+{
+    width: 50%;
+    vertical-align: middle;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 20%;
+    text-align: center;
+    display: table;
+    align-items: center;
+}
+
+.form
+{
+    position:absolute;
+    top:0;left:0;right:0;bottom:0;
+    background: #485460;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+}
+
+.registerlink
+{
+    text-decoration: none;
+    color: #69ffb4;
+}
+
+#formregister
+{
+    position:absolute;
+    top:0;left:0;right:0;bottom:0;
+    background: #485460;
+    display: flex;
+    align-items: center;
+    justify-content:center
+}
+
+.btnChange
+{
+    border-radius: 12px;
+    background-color: #b7f6d7;
+    border-style: solid;
+    border-color: #b7f6d7;
+    width: 100%;
+}
+
+.btnChange:hover
+{
+    transition: .3s;
+    background-color: #69ffb4;
+    border-color: #69ffb4;
+}
+
+.indexRedirec
+{
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #69ffb4;
+}
+
+#changeForm
+{
+    position:absolute;
+    top:0;left:0;right:0;bottom:0;
+    display: flex;
+    align-items: center;
+    margin-left: 17vw;
+}
+
+#halfDivL
+{
+    position:absolute;
+    top:0;left:0;right:0;bottom:0;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    margin-left: 20vw;
+
+}
+
+.beun
+{
+    margin-right: auto;
+    margin-left: 19vw;
+    margin-top: -7vw;
+    text-align: center;
+    display: table;
+}
+
+.btnSubmit
+{
+    border-radius: 12px;
+    background-color: #b7f6d7;
+    border-style: solid;
+    border-color: #b7f6d7;
+    width: 100%;
+}
+
+.btnSubmit:hover
+{
+    transition: .3s;
+    background-color: #69ffb4;
+    border-color: #69ffb4;
+}
+
+.tableWidth
+{   
+    border-radius: 12px;
+    background-color: #485460;
+    border-style: solid;
+    border-color: #69ffb4;
+    margin-left: 2px;
+    margin-right: 2px;
+    max-width: 25vw;
+}
+
+.tableWidth:hover
+{
+    transition: .3s;
+    background-color: #69ffb4;
+    border-color: #69ffb4;
+}
+
+.tableWidth:focus
+{
+    transition: .3s;
+    background-color: #69ffb4;
+    border-color: #69ffb4;
+}
+
+.tableHigh
+{
+    border-radius: 12px;
+    background-color: #485460;
+    border-style: solid;
+    border-color: #69ffb4;
+    width: 100%;
+    height: 5vw;
+}
+
+.tableHigh:hover
+{
+    transition: .3s;
+    background-color: #69ffb4;
+    border-color: #69ffb4;
+}
+
+.tableHigh:focus
+{
+    transition: .3s;
+    background-color: #69ffb4;
+    border-color: #69ffb4;
+}
+
+input
+{
+    color: black;
+}
+
+td
+{
+    color: white;
+}
+
+#itemadd
+{
+    position:absolute;
+    top:0;left:0;right:0;bottom:0;
+    background: #485460;
+    display: flex;
+    align-items: center;
+    justify-content:center
+}
+
+.login
+{
+    vertical-align: middle;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 20%;
+    text-align: center;
+    display: table;
+}
+
+.product
+{
+    display: table;
+    margin-top: 13vh;
+    width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    border: solid #69ffb4;
+}
+
+.product1 /*working hopefully */
+{
+    display: table;
+    margin-top: 13vh;
+    width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+}
+
+.index
+{
+    position:absolute;
+    top:0;left:0;right:0;bottom:0;
+    display: flex;
+    align-items: center;
+    justify-content:center
+}
