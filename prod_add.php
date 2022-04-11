@@ -8,6 +8,7 @@
         <link rel="stylesheet" type="text/css" href="styles/form.css">
         <link rel="stylesheet" type="text/css" href="styles/navbar.css">
         <link rel="stylesheet" type="text/css" href="styles/spinLoad.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     </head>
@@ -76,7 +77,7 @@
                                             echo "<td class='tableWidth' type='text'>".$product[$i]['prod_desc']."</td>";
                                             echo "<td class='tableWidth' type='text'>".$product[$i]['image']."</td>";
                                             echo "<td class='tableWidth' type='text'>".$product[$i]['stockLevel']."</td>";
-                                            echo "<td><a href='delete.php?prod_id=".$product[$i]['prod_id']."&user_id=".$_SESSION['role']."'><img src='images/tr.png' width=50px></td>";
+                                            echo "<td><a href='delete.php?prod_id=".$product[$i]['prod_id']."&user_id=".$_SESSION['role']."'><i class='bi bi-trash' style='font-size:40px;'></i></td>";
                                         echo '</tr>';
                                     }
                                 ?>
