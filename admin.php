@@ -33,6 +33,9 @@
         </header>
         <!-- D3.JS graph -->
         <!-- didnt make myself, example from d3js.com -->
+        <div class="chart">
+            makeChart("products");
+        </div>
         
     </body>
 </html>

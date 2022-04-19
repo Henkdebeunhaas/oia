@@ -1,70 +1,77 @@
-<html>
-    <head>
-        <script src="https://d3js.org/d3.v6.min.js"></script>
-    </head>
+<!DOCTYPE html>
+    <meta charset="utf-8">
+    <style>
+        .bar 
+        { 
+            fill: #69ffb4; 
+        }
+
+        html
+        {
+            background-color: #485460;
+        }
+    </style>
     <body>
+            
+        <!-- load the d3.js library -->    	
+        <script src="https://d3js.org/d3.v7.min.js"></script>
         <script>
+        var width = visualViewport.width * .9;// / 3;
+        var height = visualViewport.height * .9;
+        // set the dimensions and margins of the graph
+        var margin = {top: 20, right: 20, bottom: 30, left: 40},
+            width = width - margin.left - margin.right,
+            height = height - margin.top - margin.bottom;
 
-            // set the dimensions and margins of the graph
-            const margin = {top: 30, right: 30, bottom: 70, left: 60},
-                width = 460 - margin.left - margin.right,
-                height = 400 - margin.top - margin.bottom;
+        // set the ranges
+        var x = d3.scaleBand()
+                .range([0, width])
+                .padding(0.1);
+        var y = d3.scaleLinear()
+                .range([height, 0]);
+                
+        // append the svg object to the body of the page
+        // append a 'group' element to 'svg'
+        // moves the 'group' element to the top left margin
+        var svg = d3.select("body").append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+            .attr("transform", 
+                "translate(" + margin.left + "," + margin.top + ")");
 
-            // append the svg object to the body of the page
-            const svg = d3.select("#my_dataviz")
-            .append("svg")
-                .attr("width", width + margin.left + margin.right)
-                .attr("height", height + margin.top + margin.bottom)
-            .append("g")
-                .attr("transform", `translate(${margin.left},${margin.top})`);
+        // get the data
+        d3.csv("sales.csv").then(function(data) {
 
-            // Initialize the X axis
-            const x = d3.scaleBand()
-            .range([ 0, width ])
-            .padding(0.2);
-            const xAxis = svg.append("g")
-            .attr("transform", `translate(0,${height})`);
+        // format the data
+        data.forEach(function(d) {
+            d.sales = +d.sales;
+        });
 
-            // Initialize the Y axis
-            const y = d3.scaleLinear()
-            .range([ height, 0]);
-            const yAxis = svg.append("g")
-            .attr("class", "myYaxis");
+        // Scale the range of the data in the domains
+        x.domain(data.map(function(d) { return d.salesperson; }));
+        y.domain([0, d3.max(data, function(d) { return d.sales; })]);
 
+        // append the rectangles for the bar chart
+        svg.selectAll(".bar")
+            .data(data)
+            .enter().append("rect")
+            .attr("class", "bar")
+            .attr("x", function(d) { return x(d.salesperson); })
+            .attr("width", x.bandwidth())
+            .attr("y", function(d) { return y(d.sales); })
+            .attr("height", function(d) { return height - y(d.sales); });
 
-            // A function that create / update the plot for a given variable:
-            function update(selectedVar) {
+        // add the x Axis
+        svg.append("g")
+            .attr("transform", "translate(0," + height + ")")
+            .call(d3.axisBottom(x));
 
-            // Parse the Data
-            d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/barplot_change_data.csv").then( function(data) {
+        // add the y Axis
+        svg.append("g")
+            .call(d3.axisLeft(y));
 
-                // X axis
-                x.domain(data.map(d => d.group));
-                xAxis.transition().duration(1000).call(d3.axisBottom(x));
-
-                // Add Y axis
-                y.domain([0, d3.max(data, d => +d[selectedVar]) ]);
-                yAxis.transition().duration(1000).call(d3.axisLeft(y));
-
-                // variable u: map data to existing bars
-                const u = svg.selectAll("rect")
-                .data(data)
-
-                // update bars
-                u.join("rect")
-                .transition()
-                .duration(1000)
-                    .attr("x", d => x(d.group))
-                    .attr("y", d => y(d[selectedVar]))
-                    .attr("width", x.bandwidth())
-                    .attr("height", d => height - y(d[selectedVar]))
-                    .attr("fill", "#69b3a2")
-            })
-
-            }
-
-            // Initialize plot
-            update('var1')
+        });
 
         </script>
     </body>

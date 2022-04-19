@@ -60,11 +60,21 @@
         $query = "SELECT * FROM shopping_cart WHERE user_id=".$user_id;
         $doStuff = $db->query($query)->fetchAll();
 
-        #gathering all the prod_names from the previously gatherd ids
+        #gathering all the prod_names from the previously gathered ids
         for ($i = 0; $i < count($doStuff); $i++ )
         {
             $prodQuery = "SELECT * FROM product WHERE prod_id=".$doStuff[$i]['prod_id'];
         }
         return $prodQuery;
+    }
+
+    #gathering the data from the db and returning it in a json format
+    function gatherChartData($input)
+    {
+        global $db;
+        $query = "SELECT * FROM ".$input;
+        $data = $db->query($query)->fetchAll();
+        $json = json_encode($data);
+        return $json;
     }
 ?>

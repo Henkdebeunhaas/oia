@@ -42,3 +42,10 @@ html
 {
     visibility: hidden;
 }
+
+.frame
+{
+    height: 50%;
+    width: 50%;
+    border: #69ffb4;
+}
