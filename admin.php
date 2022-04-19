@@ -18,6 +18,11 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     </head>
     <body>
+        <!-- D3.JS graph -->
+        <!-- didnt make myself, example from d3js.com -->
+        <form class="form">
+            <iframe src="test.php" title="description" class="frame" width="80vw"></iframe>
+        </form>
         <header>
             <div class="container">
                 <h1 class="logo"><a href="index.php">beun it</a></h1>
@@ -31,12 +36,6 @@
                 </nav>
             </div>
         </header>
-        <!-- D3.JS graph -->
-        <!-- didnt make myself, example from d3js.com -->
-        <div class="chart">
-            makeChart("products");
-        </div>
-        
     </body>
 </html>
     

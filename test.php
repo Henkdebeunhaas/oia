@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-    <meta charset="utf-8">
     <style>
         .bar 
         { 
@@ -12,7 +11,10 @@
         }
     </style>
     <body>
-            
+        <?php
+          include("func.php");
+          //gatherChartData();  
+        ?>
         <!-- load the d3.js library -->    	
         <script src="https://d3js.org/d3.v7.min.js"></script>
         <script>
@@ -41,26 +43,28 @@
                 "translate(" + margin.left + "," + margin.top + ")");
 
         // get the data
-        d3.csv("sales.csv").then(function(data) {
+        d3.json("testGraph.php").then(function(data) {
+            console.log(data);
 
         // format the data
         data.forEach(function(d) {
-            d.sales = +d.sales;
+            d.stock = +d.stockLevel;
+            d.product = d.prod_name;
         });
 
         // Scale the range of the data in the domains
-        x.domain(data.map(function(d) { return d.salesperson; }));
-        y.domain([0, d3.max(data, function(d) { return d.sales; })]);
+        x.domain(data.map(function(d) { return d.product; }));
+        y.domain([0, d3.max(data, function(d) { return d.stock; })]);
 
         // append the rectangles for the bar chart
         svg.selectAll(".bar")
             .data(data)
             .enter().append("rect")
             .attr("class", "bar")
-            .attr("x", function(d) { return x(d.salesperson); })
+            .attr("x", function(d) { return x(d.product); })
             .attr("width", x.bandwidth())
-            .attr("y", function(d) { return y(d.sales); })
-            .attr("height", function(d) { return height - y(d.sales); });
+            .attr("y", function(d) { return y(d.stock); })
+            .attr("height", function(d) { return height - y(d.stock); });
 
         // add the x Axis
         svg.append("g")
