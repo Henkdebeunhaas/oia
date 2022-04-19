@@ -49,3 +49,10 @@ html
     width: 50%;
     border: #69ffb4;
 }
+
+.chart
+{
+    margin-left: 10vw;
+    margin-right: 10vw;
+    width: 80vw;
+}

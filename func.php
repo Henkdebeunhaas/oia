@@ -69,12 +69,12 @@
     }
 
     #gathering the data from the db and returning it in a json format
-    function gatherChartData($input)
+    function gatherChartData()
     {
         global $db;
-        $query = "SELECT * FROM ".$input;
+        $query = "SELECT * FROM product";
         $data = $db->query($query)->fetchAll();
         $json = json_encode($data);
-        return $json;
+        echo $json;
     }
 ?>
