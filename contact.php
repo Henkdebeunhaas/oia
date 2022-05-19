@@ -84,36 +84,8 @@
             </div>
             <?php
         }
+        navBar();
         ?>
-         <header>
-            <div class="container">
-                <h1 class="logo"><a href="index.php">beun it</a></h1>
-                <nav>
-                    <ul>
-                        <li class="cat"><a href="index.php">Home</a></li>
-                        <li class="cat"><a href="products.php">Products</a></li>
-                        <li class="cat"><a href="faq.php">FAQ</a></li>
-                        <li class="cat"><a href="contact.php">Contact</a></li>
-                        <?php
-                            if(@$_SESSION['role'] == 2)
-                            {
-                                ?>
-                                    <li><a href="admin.php">Admin</a></li>
-                                    <li><a href="logout.php">Logout</a></li>
-                                <?php
-                            }
-                            else
-                            {
-                                ?>
-                                    <li><a href="account.php">Account</a></li>
-                                    <li><a href="logout.php">Logout</a></li>
-                                <?php
-                            }
-                        ?>
-                    </ul>
-                </nav>
-            </div>
-        </header>
     </body>
 </html>
 

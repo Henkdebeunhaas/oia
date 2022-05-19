@@ -76,7 +76,6 @@
             .call(d3.axisLeft(y));
 
         });
-
         </script>
     </body>
 </html>

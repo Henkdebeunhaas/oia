@@ -38,14 +38,14 @@
                         if($execute)
                         {
                             ?>
-                            <h1 class="login">Item added</h1>
-                            <div class="spinner">
-                                <div class="dot"></div>
-                                <div class="dot"></div>
-                                <div class="dot"></div>
-                                <div class="dot"></div>
-                                <div class="dot"></div>
-                            </div>
+                                <h1 class="login">Item added</h1>
+                                <div class="spinner">
+                                    <div class="dot"></div>
+                                    <div class="dot"></div>
+                                    <div class="dot"></div>
+                                    <div class="dot"></div>
+                                    <div class="dot"></div>
+                                </div>
                             <?php
                             header("refresh:1.5; url=prod_add.php");
                         }
@@ -77,7 +77,8 @@
                                             echo "<td class='tableWidth' type='text'>".$product[$i]['prod_desc']."</td>";
                                             echo "<td class='tableWidth' type='text'>".$product[$i]['image']."</td>";
                                             echo "<td class='tableWidth' type='text'>".$product[$i]['stockLevel']."</td>";
-                                            echo "<td><a href='delete.php?prod_id=".$product[$i]['prod_id']."&user_id=".$_SESSION['role']."'><i class='bi bi-trash' style='font-size:40px;'></i></td>";
+                                            echo "<td class='tableWidth' type='text'>".$product[$i]['active']."</td>";
+                                            echo "<td><a href='change.php?prod_id=".$product[$i]['prod_id']."&user_id=".$_SESSION['role']."&func=active'><i class='bi bi-arrow-clockwise' style='font-size:40px;'></i></td>";
                                         echo '</tr>';
                                     }
                                 ?>
@@ -98,20 +99,8 @@
                             </table>
                         </form>
                     </div>
-                    <header>
-                        <div class="container">
-                            <h1 class="logo"><a href="index.php">beun it</a></h1>
-                            <nav>
-                                <ul>
-                                    <li><a href="index.php">Home</a></li>
-                                    <li><a href="admin.php">Admin home</a></li>
-                                    <li><a href="message.php">Messages</a></li>
-                                    <li><a href="logout.php">Logout</a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </header>
                     <?php
+                    navBar();
                 }
             }
             else
