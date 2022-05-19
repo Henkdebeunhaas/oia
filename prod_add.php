@@ -78,7 +78,6 @@
                                             echo "<td class='tableWidth' type='text'>".$product[$i]['image']."</td>";
                                             echo "<td class='tableWidth' type='text'>".$product[$i]['stockLevel']."</td>";
                                             echo "<td class='tableWidth' type='text'>".$product[$i]['active']."</td>";
-                                            echo "<td><a href='change.php?prod_id=".$product[$i]['prod_id']."&user_id=".$_SESSION['role']."&func=delete'><i class='bi bi-trash' style='font-size:40px;'></i></td>";
                                             echo "<td><a href='change.php?prod_id=".$product[$i]['prod_id']."&user_id=".$_SESSION['role']."&func=active'><i class='bi bi-arrow-clockwise' style='font-size:40px;'></i></td>";
                                         echo '</tr>';
                                     }
