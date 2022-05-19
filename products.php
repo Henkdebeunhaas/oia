@@ -20,61 +20,30 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     </head>
     <body>
-        <header>
-            <div class="container">
-                <h1 class="logo"><a href="index.php">beun it</a></h1>
-                <nav>
-                    <ul>
-                        <li class="cat"><a href="index.php">Home</a></li>
-                        <li class="cat"><a href="products.php">Products</a></li>
-                        <li class="cat"><a href="faq.php">FAQ</a></li>
-                        <li class="cat"><a href="contact.php">Contact</a></li><?php
-                            if($_SESSION['role'] == 2)
-                            {
-                            ?>
-                                <li><a href="admin.php">Admin</a></li>
-                                <li><a href="logout.php">Logout</a></li>
-                            <?php
-                            }
-                            else
-                            {
-                            ?>
-                                <li><a href="account.php">Account</a></li>
-                                <li><a href="logout.php">Logout</a></li>
-                            <?php
-                            }
-                        ?>
-                    </ul>
-                </nav>
-            </div>
-        </header>
-        <div class="basket">
-
-        </div>
+        <?php
+        navBar();
+        ?>
         <div class="product1">
             <?php
                 $product = getProdInfo();
                 for ($i = 0; $i < count($product); $i++)
                 {
-                ?>
-                    <div class="product">
-                        <?php
-                            echo '<tr>';
-                                echo "<td><image src=".$product[$i]['image']." width='30%'></td>";
-                                echo "<td><h1>".$product[$i]['prod_name']."</h1></td>";
-                                echo "<td><h3>€".$product[$i]['price'].",-</h3></td><td><h3>Stock: ".$product[$i]['stockLevel']."</h3></td>";
-                                echo "<td><h4>".$product[$i]['prod_desc']."</h4></td>";
-                                echo "<td><a href='cart.php?prod_id=".$product[$i]['prod_id']."&user_id=".$_SESSION['id']."'><i class='bi bi-basket2' style='font-size:100px;'></i></a></td>";
-                            echo '</tr>';
+                    if ($product[$i]['active'] != 0)
+                    {
                         ?>
-                    </div>
-                <?php
-                }
-                $basket = getCartContent($_SESSION['id']);
-                for ($i = 0; $i < count($basket); $i++)
-                {
-                    echo count($basket);
-                    //echo $basket[$i]['prod_id'];
+                            <div class="product">
+                                <?php
+                                    echo '<tr>';
+                                        echo "<td><image src=".$product[$i]['image']." width='30%'></td>";
+                                        echo "<td><h1>".$product[$i]['prod_name']."</h1></td>";
+                                        echo "<td><h3>€".$product[$i]['price'].",-</h3></td><td><h3>Stock: ".$product[$i]['stockLevel']."</h3></td>";
+                                        echo "<td><h4>".$product[$i]['prod_desc']."</h4></td>";
+                                        echo "<td><a href='cart.php?prod_id=".$product[$i]['prod_id']."&user_id=".$_SESSION['id']."'><i class='bi bi-basket2' style='font-size:100px;'></i></a></td>";
+                                    echo '</tr>';
+                                ?>
+                            </div>
+                        <?php
+                    }
                 }
             ?>
         </div>

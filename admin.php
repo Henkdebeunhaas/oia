@@ -21,21 +21,11 @@
         <!-- D3.JS graph -->
         <!-- didnt make myself, example from d3js.com -->
         <form class="form">
-            <iframe src="test.php" title="description" class="frame" width="80vw"></iframe>
+            <iframe src="graph.php" title="description" class="frame" width="80vw"></iframe>
         </form>
-        <header>
-            <div class="container">
-                <h1 class="logo"><a href="index.php">beun it</a></h1>
-                <nav>
-                    <ul>
-                        <li><a href="index.php">Home</a></li>
-                        <li><a href="prod_add.php">Add product</a></li>
-                        <li><a href="message.php">Messages</a></li>
-                        <li><a href="logout.php">Logout</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
+        <?php
+            navBar();
+        ?>
     </body>
 </html>
     
