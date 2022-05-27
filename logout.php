@@ -31,6 +31,5 @@
         <?php
             header("refresh:3; url=login.php");
         ?>
-
     </body>
 </html>
