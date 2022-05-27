@@ -9,20 +9,12 @@
             if(!$_SESSION) header("refresh:0; url=login.php");
         ?>
         <title>BEUN IT - PRODUCTS</title>
-        <link rel="icon" type="image/x-icon" href="images/logo.png">
-        <link rel="stylesheet" type="text/css" href="styles/css.css">
-        <link rel="stylesheet" type="text/css" href="styles/form.css">
-        <link rel="stylesheet" type="text/css" href="styles/navbar.css">
-        <link rel="stylesheet" type="text/css" href="styles/spinLoad.css">
-        <!-- font and bootstrap, didnt make myself -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+        <?php
+            navBar();
+        ?>
+
     </head>
     <body>
-        <?php
-        navBar();
-        ?>
         <div class="product1">
             <?php
                 $product = getProdInfo();

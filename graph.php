@@ -43,7 +43,7 @@
                 "translate(" + margin.left + "," + margin.top + ")");
 
         // get the data
-        d3.json("testGraph.php").then(function(data) {
+        d3.json("dataGather.php").then(function(data) {
             console.log(data);
 
         // format the data
