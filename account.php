@@ -33,17 +33,8 @@
                         
                     if(!$_POST['name'] || !$_POST['password'])
                     {
-                        ?>
-                            <h1 class="login">The fields can't be empty!</h1>
-                            <div class="spinner">
-                                <div class="dot"></div>
-                                <div class="dot"></div>
-                                <div class="dot"></div>
-                                <div class="dot"></div>
-                                <div class="dot"></div>
-                            </div>
-                            <?php
-                            header("refresh:1.5; url=account.php");
+                        spinLoad();
+                        header("refresh:1.5; url=account.php");
                     }
                     else
                     {
@@ -51,15 +42,7 @@
                             <h1 class="login">Changes have been made</h1>
                         <?php
                         $change = $prepare->execute(array($name,$password));
-                        ?>
-                        <div class="spinner">
-                            <div class="dot"></div>
-                            <div class="dot"></div>
-                            <div class="dot"></div>
-                            <div class="dot"></div>
-                            <div class="dot"></div>
-                        </div>
-                        <?php
+                        spinLoad();
                         session_destroy();
                         header("refresh:1.5; url=login.php");
                     }

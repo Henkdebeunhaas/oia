@@ -2,17 +2,10 @@
 <html>
     <head>
         <title>BEUN IT - LOGIN</title>
-        <!-- favicon at the top -->
-        <link rel="icon" type="image/x-icon" href="images/logo.png">
-        <link rel="stylesheet" type="text/css" href="styles/css.css">
-        <link rel="stylesheet" type="text/css" href="styles/form.css">
-        <link rel="stylesheet" type="text/css" href="styles/navbar.css">
-        <link rel="stylesheet" type="text/css" href="styles/spinLoad.css">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
         <?php
             session_start();
             include("config.php");
+            include("func.php");
         ?>
     </head>
     <body>
@@ -35,31 +28,13 @@
                 
                     if($_SESSION)
                     {
-                        ?>
-                        <h1 class="login">Hello there!</h1>
-                        <div class="spinner">
-                            <div class="dot"></div>
-                            <div class="dot"></div>
-                            <div class="dot"></div>
-                            <div class="dot"></div>
-                            <div class="dot"></div>
-                        </div>
-                        <?php                     
+                        spinLoad();                   
                         header("refresh:3; url=index.php");   
                     }
                 }
                 else
                 {
-                    ?>
-                        <h1 class="login">Password and or username incorrect!</h1>
-                        <div class="spinner">
-                            <div class="dot"></div>
-                            <div class="dot"></div>
-                            <div class="dot"></div>
-                            <div class="dot"></div>
-                            <div class="dot"></div>
-                        </div>
-                    <?php
+                    spinLoad();
                     header("refresh:3; url=login.php");
                 }
             }
@@ -96,5 +71,8 @@
                 <h1 class="logo"><a href="index.php">beun it</a></h1>
             </div>
         </header>
+        <?php
+            navBar();
+        ?>
     </body>
 </html>

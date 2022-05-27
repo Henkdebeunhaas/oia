@@ -18,17 +18,7 @@
     <body>
         <?php
             session_destroy();
-        ?>
-
-        <h1 class="login">Logged out</h1>
-        <div class="spinner">
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-        </div>
-        <?php
+            spinLoad();
             header("refresh:3; url=login.php");
         ?>
     </body>

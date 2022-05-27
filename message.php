@@ -23,13 +23,7 @@
                         {
                             ?>
                                 <h1 class="login">Please fill in all the fields!</h1>
-                                <div class="spinner">
-                                    <div class="dot"></div>
-                                    <div class="dot"></div>
-                                    <div class="dot"></div>
-                                    <div class="dot"></div>
-                                    <div class="dot"></div>
-                                </div>  
+                                spinLoad(); 
                             <?php
                             header("refresh:1.5; url=prod_add.php");
                         }

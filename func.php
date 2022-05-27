@@ -6,16 +6,16 @@
     function getProdInfo()
     {
         global $db;
-        $tickets = $db->query('SELECT * FROM product')->fetchAll();
-        return $tickets;
+        $prods = $db->query('select * from product')->fetchAll();
+        return $prods;
     }
 
     #gather a specific product, if you know the prod_id
     function getOneProd($id)
     {
         global $db;
-        $doStuff = $db->query('SELECT * FROM product WHERE prod_id='.$id)->fetch();
-        return $doStuff;
+        $prod = $db->query('select * from product where prod_id='.$id)->fetch();
+        return $prod;
     }
 
     #gather all the messages that are in the db
@@ -23,8 +23,8 @@
     function getMessages()
     {
         global $db;
-        $doStuff = $db->query('SELECT * FROM message')->fetchAll();
-        return $doStuff;
+        $messages = $db->query('select * from message')->fetchAll();
+        return $messages;
     }
 
     #delete the product with the given prod_id
@@ -33,13 +33,13 @@
     {
         global $db;
         $prod_id =$_GET['prod_id'];
-        $query = "DELETE FROM product WHERE prod_id=".$id;
+        $query = "delete from product where prod_id=".$id;
         $doStuff = $db->query($query);
     }
 
     #changine whether the customer can see and buy the product
     #doing it like this so the previous sales dont mess up
-    #and deleting data is evil
+    #and deleting data is evil :)
     function changeProd($id)
     {
         global $db;
@@ -61,7 +61,7 @@
     function gatherChartData()
     {
         global $db;
-        $query = "SELECT * FROM product";
+        $query = "select * from product";
         $data = $db->query($query)->fetchAll();
         #$json = json_encode($data);
         echo json_encode($data);
@@ -84,7 +84,6 @@
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
             </head>
             <body>
-
             <header>
                 <div class="container">
                     <h1 class="logo"><a href="index.php">beun it</a></h1>
@@ -96,25 +95,39 @@
                             <li class="cat"><a href="contact.php">Contact</a></li><?php
                                 if($_SESSION['role'] == 2)
                                 {
-                                ?>
-                                    <li><a href="admin.php">Admin</a></li>
-                                    <li><a href="message.php">Message</a></li>
-                                    <li><a href="prod_add.php">Stock</a></li>
-                                    <li><a href="logout.php">Logout</a></li>
-                                <?php
+                                    ?>
+                                        <li><a href="admin.php">Admin</a></li>
+                                        <li><a href="message.php">Message</a></li>
+                                        <li><a href="prod_add.php">Stock</a></li>
+                                        <li><a href="logout.php">Logout</a></li>
+                                    <?php
                                 }
                                 else
                                 {
-                                ?>
-                                    <li><a href="account.php">Account</a></li>
-                                    <li><a href="logout.php">Logout</a></li>
-                                <?php
+                                    ?>
+                                        <li><a href="account.php">Account</a></li>
+                                        <li><a href="logout.php">Logout</a></li>
+                                    <?php
                                 }
                             ?>
                         </ul>
                     </nav>
                 </div>
             </header>
+        <?php
+    }
+
+    #prints the spin load animation on the screen
+    function spinLoad()
+    {
+        ?>
+                <div class="spinner">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
         <?php
     }
 ?>

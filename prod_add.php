@@ -2,16 +2,7 @@
 <html>
     <head>
         <title>BEUN IT - ADMIN</title>
-        <!-- favicon at the top -->
-        <link rel="icon" type="image/x-icon" href="images/logo.png">
-        <link rel="stylesheet" type="text/css" href="styles/css.css">
-        <link rel="stylesheet" type="text/css" href="styles/form.css">
-        <link rel="stylesheet" type="text/css" href="styles/navbar.css">
-        <link rel="stylesheet" type="text/css" href="styles/spinLoad.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-    </head>
+        <!-- navBar with CSS and bootstrap gets imported later on -->
     <body>
         <?php
             include("func.php");
@@ -37,22 +28,14 @@
                         $execute = $connect->execute(array($name,$price,$desc,$image,$stockLevel));
                         if($execute)
                         {
-                            ?>
-                                <h1 class="login">Item added</h1>
-                                <div class="spinner">
-                                    <div class="dot"></div>
-                                    <div class="dot"></div>
-                                    <div class="dot"></div>
-                                    <div class="dot"></div>
-                                    <div class="dot"></div>
-                                </div>
-                            <?php
+                            spinLoad();
                             header("refresh:1.5; url=prod_add.php");
                         }
                     }
                 }
                 else
                 {
+                    #printing all the products in the database no matter if they can be seen by the customer or not
                     ?>
                     <!-- product form -->
                     <div class="login_form">
@@ -65,6 +48,7 @@
                                     <td>Description</td>
                                     <td>Product image path</td>
                                     <td>Stock level</td>
+                                    <td>Active?</td>
                                 </tr>
                                 <?php 
                                     $product = getProdInfo();
@@ -100,6 +84,7 @@
                         </form>
                     </div>
                     <?php
+                    #printing the navbar here so its on top of everything and works properly
                     navBar();
                 }
             }

@@ -22,16 +22,7 @@
             $message = $_POST['message']; 
             if(!$name||!$message)
             {
-                ?>
-                    <h1 class="login">Please fill in all the fields!</h1>
-                    <div class="spinner">
-                        <div class="dot"></div>
-                        <div class="dot"></div>
-                        <div class="dot"></div>
-                        <div class="dot"></div>
-                        <div class="dot"></div>
-                    </div>  
-                <?php
+                spinLoad();
                 header("refresh:3; url=contact.php");
             }
             else
@@ -39,16 +30,7 @@
                 $execute = $connect->execute(array($_SESSION['id'],$name,$message));
                 if($execute)
                 {
-                    ?>
-                    <h1 class="login">Message Sent</h1>
-                    <div class="spinner">
-                        <div class="dot"></div>
-                        <div class="dot"></div>
-                        <div class="dot"></div>
-                        <div class="dot"></div>
-                        <div class="dot"></div>
-                    </div>
-                    <?php
+                    spinLoad();
                     header("refresh:2; url=index.php");
                 }
             }
