@@ -6,6 +6,10 @@
             include("func.php");
             #if you're not logged in, do that pls
             if(!$_SESSION) header("refresh:0; url=login.php");
+            ?>
+                <head>
+                    <title>BEUN IT - INDEX</title>
+            <?php
             navBar();
         ?>
         <h1 class="login">Welcome to BEUN IT!</h1>

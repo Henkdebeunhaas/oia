@@ -28,6 +28,7 @@
     }
 
     #delete the product with the given prod_id
+    #doesnt get used, but want to have it just incase
     function deleteProd($id)
     {
         global $db;
@@ -38,6 +39,7 @@
 
     #changine whether the customer can see and buy the product
     #doing it like this so the previous sales dont mess up
+    #and deleting data is evil
     function changeProd($id)
     {
         global $db;
@@ -61,57 +63,58 @@
         global $db;
         $query = "SELECT * FROM product";
         $data = $db->query($query)->fetchAll();
-        $json = json_encode($data);
-        echo $json;
+        #$json = json_encode($data);
+        echo json_encode($data);
     }
 
     #printing the navBar on the page where its called
     function navBar()
     {
         ?>
-        <head>
-            <title>BEUN IT - INDEX</title>
-            <!-- favicon at the top -->
-            <link rel="icon" type="image/x-icon" href="images/logo.png">
-            <link rel="stylesheet" type="text/css" href="styles/css.css">
-            <link rel="stylesheet" type="text/css" href="styles/form.css">
-            <link rel="stylesheet" type="text/css" href="styles/navbar.css">
-            <link rel="stylesheet" type="text/css" href="styles/spinLoad.css">
-            <link rel="preconnect" href="https://fonts.gstatic.com">
-            <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-        </head>
-        <body>
+            <head>
+                <!-- favicon at the top -->
+                <link rel="icon" type="image/x-icon" href="images/logo.png">
+                <link rel="stylesheet" type="text/css" href="styles/css.css">
+                <link rel="stylesheet" type="text/css" href="styles/form.css">
+                <link rel="stylesheet" type="text/css" href="styles/navbar.css">
+                <link rel="stylesheet" type="text/css" href="styles/spinLoad.css">
+                <link rel="preconnect" href="https://fonts.gstatic.com">
+                <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+                <!-- bootstrap icons, didnt write myself -->
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+            </head>
+            <body>
 
-        <header>
-            <div class="container">
-                <h1 class="logo"><a href="index.php">beun it</a></h1>
-                <nav>
-                    <ul>
-                        <li class="cat"><a href="index.php">Home</a></li>
-                        <li class="cat"><a href="products.php">Products</a></li>
-                        <li class="cat"><a href="faq.php">FAQ</a></li>
-                        <li class="cat"><a href="contact.php">Contact</a></li><?php
-                            if($_SESSION['role'] == 2)
-                            {
+            <header>
+                <div class="container">
+                    <h1 class="logo"><a href="index.php">beun it</a></h1>
+                    <nav>
+                        <ul>
+                            <li class="cat"><a href="index.php">Home</a></li>
+                            <li class="cat"><a href="products.php">Products</a></li>
+                            <li class="cat"><a href="faq.php">FAQ</a></li>
+                            <li class="cat"><a href="contact.php">Contact</a></li><?php
+                                if($_SESSION['role'] == 2)
+                                {
+                                ?>
+                                    <li><a href="admin.php">Admin</a></li>
+                                    <li><a href="message.php">Message</a></li>
+                                    <li><a href="prod_add.php">Stock</a></li>
+                                    <li><a href="logout.php">Logout</a></li>
+                                <?php
+                                }
+                                else
+                                {
+                                ?>
+                                    <li><a href="account.php">Account</a></li>
+                                    <li><a href="logout.php">Logout</a></li>
+                                <?php
+                                }
                             ?>
-                                <li><a href="admin.php">Admin</a></li>
-                                <li><a href="message.php">Message</a></li>
-                                <li><a href="prod_add.php">Stock</a></li>
-                                <li><a href="logout.php">Logout</a></li>
-                            <?php
-                            }
-                            else
-                            {
-                            ?>
-                                <li><a href="account.php">Account</a></li>
-                                <li><a href="logout.php">Logout</a></li>
-                            <?php
-                            }
-                        ?>
-                    </ul>
-                </nav>
-            </div>
-        </header>
-    <?php
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+        <?php
     }
 ?>

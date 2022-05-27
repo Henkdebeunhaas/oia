@@ -9,17 +9,8 @@
             if(!$_SESSION) header("refresh:0; url=login.php");
         ?>
         <title>BEUN IT - CONTACT</title>
-        <!-- favicon at the top -->
-        <link rel="icon" type="image/x-icon" href="images/logo.png">
-        <link rel="stylesheet" type="text/css" href="styles/css.css">
-        <link rel="stylesheet" type="text/css" href="styles/form.css">
-        <link rel="stylesheet" type="text/css" href="styles/navbar.css">
-        <link rel="stylesheet" type="text/css" href="styles/spinLoad.css">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" >
-    </head>
-    <body>
     <?php
+        navBar();
         $connect = $db->prepare("
         insert into message set
         user_id=?,
