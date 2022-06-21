@@ -91,7 +91,6 @@
                         <ul>
                             <li class="cat"><a href="index.php">Home</a></li>
                             <li class="cat"><a href="products.php">Products</a></li>
-                            <li class="cat"><a href="faq.php">FAQ</a></li>
                             <li class="cat"><a href="contact.php">Contact</a></li><?php
                                 if($_SESSION['role'] == 2)
                                 {

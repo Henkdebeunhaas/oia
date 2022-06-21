@@ -1,3 +1,5 @@
+
+<!-- didnt completely write it myself, did make sort of an API cause its easier that way with D3.js -->
 <!DOCTYPE html>
     <style>
         .bar 
@@ -12,8 +14,10 @@
     </style>
     <body>
         <?php
-          include("func.php");
-          //gatherChartData();  
+            include("config.php");
+            include("func.php");
+            session_start();
+            if ($_SESSION['role'] != 2) rr();
         ?>
         <!-- load the d3.js library -->    	
         <script src="https://d3js.org/d3.v7.min.js"></script>
